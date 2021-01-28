@@ -149,6 +149,7 @@ alias gtbdm='gtf --prune && gtb --merged | egrep -v "\*|develop|master"|xargs gi
 
 alias nv='nvim'
 alias c='clear'
+alias e='exit'
 alias start-docker='sudo systemctl start docker'
 
 function edbrc() {
@@ -193,3 +194,4 @@ function update-xserver() {
 	git checkout develop
 }
 
+source ~/.git-completion.bash
