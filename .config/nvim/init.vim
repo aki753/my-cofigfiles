@@ -41,15 +41,21 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ghifarit53/tokyonight-vim'
 
 Plug 'maxmellon/vim-jsx-pretty'
+
+" 下のバーの拡張機能
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
-set tabstop=4
+set tabstop=2
 set number
 set nobackup
 set noswapfile
 set hlsearch
 set autoindent
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
 set completeopt=menuone,noinsert,noselect,preview
 set wildmenu " コマンドモードの補完
@@ -140,13 +146,10 @@ nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 noremap ; :
 noremap : ;
 
-inoremap <Esc> :jj
-
 let g:user_emmet_leader_key='<C-E>'
 
 " inoremap <silent>  <BS>
 inoremap <silent> jj <ESC>
-" inoremap <Space>j <ESC>
 
 set termguicolors
 let g:tokyonight_style = 'night' " available: night, storm
