@@ -47,6 +47,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'rust-lang/rust.vim'
+
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 set tabstop=2
@@ -161,6 +163,12 @@ nmap <silent> <C-d> <Plug>(coc-definition)
 
 nmap <silent> cca <Plug>(coc-codeaction)
 
+
+imap <c-h> <left>
+imap <c-j> <down>
+imap <c-k> <up>
+imap <c-l> <right>
+
 let g:coc_global_extensions = [
       \'coc-json',
       \'coc-flutter',
@@ -198,3 +206,6 @@ let g:coc_global_extensions = [
       \'coc-clangd',
       \'coc-db'
       \]
+
+" junegunn/vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
