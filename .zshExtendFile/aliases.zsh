@@ -31,7 +31,7 @@ alias mkdir='mkdir -p'
 # 設定ファイルをすぐ編集できるようにする
 alias zshrc='$EDITOR ~/.zshrc'
 alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
-alias tmuxrc='$EDITOR ~/.tmux.config'
+alias tmuxrc='$EDITOR ~/.tmux.conf'
 
 # cd aliases
 alias ...='cd ../..'

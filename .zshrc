@@ -1,3 +1,11 @@
+# If you need to have icu4c first in your PATH, run:
+#   echo 'export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"' >> ~/.zshrc
+#   echo 'export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"' >> ~/.zshrc
+# 
+# For compilers to find icu4c you may need to set:
+#   export LDFLAGS="-L/opt/homebrew/opt/icu4c/lib"
+#   export CPPFLAGS="-I/opt/homebrew/opt/icu4c/include"
+
 ZSH_EXTEND_FILE=~/.zshExtendFile
 ALIAS_FILE=$ZSH_EXTEND_FILE/aliases.zsh
 
@@ -8,18 +16,19 @@ else
 	print '404: $ALIAS_FILE not found'
 fi
 
+# zplug install
+# curl -sL --proto-redir -all、https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+source ~/.zplug/init.zsh
+zplug "b4b4r07/enhancd", use:init.sh
+source ~/.zplug/repos/b4b4r07/enhancd/init.sh
+
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
 
-export PS1='%u %# %t %w %$ '
+source $HOME/.cargo/env
 
-# 補完機能を有効にする
-autoload -Uz compinit
-compinit -u
-if [ -e /usr/local/share/zsh-completions ]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+export PS1='%u %# %t %w %$ '
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -34,17 +43,13 @@ zstyle ':completion:*' list-colors ''
 # コマンドのスペルを訂正
 setopt correct
 
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-
-zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
-
 # FPATHに`~/.zsh/completion`を追加
 fpath=(~/.zsh/completion $fpath)
 
 # シェル関数`compinit`の自動読み込み
 autoload -Uz compinit && compinit -i
 
+zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
 # ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -92,6 +97,9 @@ setopt hist_ignore_space
 # ヒストリに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
 
+# 補完時にヒストリを自動的に展開
+setopt hist_expand
+
 ##################################################################
 
 ##################################################################
@@ -112,4 +120,14 @@ zle -N zle-keymap-select
 bindkey -M viins 'jj' vi-cmd-mode
 ##################################################################
 
-tmux
+# そのコマンドの履歴をpとnで表示する
+bindkey '^p' history-beginning-search-backward
+bindkey '^n' history-beginning-search-forward
+
+export PATH=$PATH:~/.npm-global/bin
+
+tmux a
+export PATH="/usr/local/Cellar/node/13.5.0/bin/:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
