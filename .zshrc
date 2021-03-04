@@ -125,9 +125,12 @@ bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
 
 export PATH=$PATH:~/.npm-global/bin
-
-tmux a
 export PATH="/usr/local/Cellar/node/13.5.0/bin/:$PATH"
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+export PATH="/opt/homeebrew/opt/llvm/bin:$PATH"
+
+tmux a -t free-session

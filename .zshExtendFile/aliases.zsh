@@ -30,8 +30,13 @@ alias mkdir='mkdir -p'
 
 # 設定ファイルをすぐ編集できるようにする
 alias zshrc='$EDITOR ~/.zshrc'
+alias szshrc='source ~/.zshrc'
+
 alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
+alias snvimrc='source ~/.config/nvim/init.vim'
+
 alias tmuxrc='$EDITOR ~/.tmux.conf'
+alias stmuxrc='tmux source ~/.tmux.conf'
 
 # cd aliases
 alias ...='cd ../..'
@@ -45,3 +50,6 @@ alias mv='mv -iv'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
+
+# docker-compose
+alias dcp='docker-compose up'
