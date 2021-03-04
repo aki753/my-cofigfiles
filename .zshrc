@@ -6,8 +6,8 @@
 #   export LDFLAGS="-L/opt/homebrew/opt/icu4c/lib"
 #   export CPPFLAGS="-I/opt/homebrew/opt/icu4c/include"
 
-ZSH_EXTEND_FILE=~/.zshExtendFile
-ALIAS_FILE=$ZSH_EXTEND_FILE/aliases.zsh
+ZSH_EXTEND_FILE=~/.extendFile
+ALIAS_FILE=$ZSH_EXTEND_FILE/aliases
 
 # aliasの設定ファイルを読み込む
 if [ -f $ALIAS_FILE ]; then

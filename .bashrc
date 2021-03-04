@@ -1,5 +1,13 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.  see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+ZSH_EXTEND_FILE=~/.extendFile
+ALIAS_FILE=$ZSH_EXTEND_FILE/aliases
+
+# aliasの設定ファイルを読み込む
+if [ -f $ALIAS_FILE ]; then
+	source $ALIAS_FILE
+else
+	print '404: $ALIAS_FILE not found'
+fi
+
 
 # If not running interactively, don't do anything
 case $- in
@@ -86,15 +94,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -130,69 +129,13 @@ if type brew &>/dev/null; then
 	fi
 fi
 
-# git かばさわさんから受け継ぎしもの
-alias gta='git add -A'
-alias gtc='git commit'
-alias gtp='git push'
-alias gtb='git branch'
-alias gtch='git checkout'
-alias gtl='git log'
-alias gtd='git diff'
-alias gts='git status'
-alias gtpl='git pull'
-alias gtcl='git clone'
-alias gtf='git fetch'
-alias gtm='git merge'
-alias gtr='git reset'
-
-alias gtbdm='gtf --prune && gtb --merged | egrep -v "\*|develop|master"|xargs git branch -d'
-
-alias nv='nvim'
-alias c='clear'
-alias e='exit'
 alias start-docker='sudo systemctl start docker'
-
-function edbrc() {
-    if [[ ${1} = "-h" ]] ; then
-cat << EOS
-edit .bashrc
-
-option:
--u edit and update .bashrc
-EOS
-return 0
-    fi
-
-    nvim ~/.bashrc
-    # 引数が空だと、bash: [: =: 単項演算子が予期されます というエラーが出るため、[[  ]]で囲んで出ないようにする
-    if [[ ${1} = "-u" ]] ; then
-        source ~/.bashrc
-        echo "Update .bashrc"
-    fi
-
-    if [[ ${1} = "-h" ]] ; then
-        cat << EOS
-        edit .bashrc
-
-        option:
-
-        -u edit and update .bashrc
-EOS
-    fi
-}
 
 source "$HOME/.cargo/env"
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 	source /etc/profile.d/vte.sh
 fi
-
-function update-xserver() {
-	git checkout xserver
-	git pull origin develop
-	git push origin xserver
-	git checkout develop
-}
 
 if [ -f /etc/bash_completion  ]; then
 	. /etc/bash_completion
