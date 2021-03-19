@@ -6,8 +6,13 @@ alias la='ls -AG'
 alias l='ls -CFG'
 
 # git aliases
-alias gta='git add -A'
-alias gtc='git commit'
+alias gta='git add'
+
+# git commit
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gce='git commit -e'
+
 alias gtp='git push'
 alias gtb='git branch'
 alias gtch='git checkout'
@@ -22,6 +27,8 @@ alias gtr='git reset'
 alias gtbdm='gtf --prune && gtb --merged | egrep -v "\*|develop|master"|xargs git branch -d'
 
 alias nv='nvim'
+alias cnv='nvim -u NONE'
+
 alias c='clear'
 alias e='exit'
 
@@ -34,6 +41,7 @@ alias sbashrc='source ~/.bashrc'
 
 alias zshrc='$EDITOR ~/.zshrc'
 alias szshrc='source ~/.zshrc'
+alias aszshrc='unalias -a && source ~/.zshrc'
 
 alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
 alias snvimrc='source ~/.config/nvim/init.vim'
@@ -55,4 +63,7 @@ alias mv='mv -iv'
 alias sudo='sudo '
 
 # docker-compose
-alias dcp='docker-compose up'
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+
+alias dsql='mysql -u root -ppassword -h localhost -P 3306 --protocol=tc'
