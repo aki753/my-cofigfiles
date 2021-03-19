@@ -61,7 +61,7 @@ set shiftwidth=2
 set smartindent
 set completeopt=menuone,noinsert,noselect,preview
 set wildmenu " コマンドモードの補完
-
+set clipboard+=unnamed
 
 " if empty(globpath(&rtp, 'autoload/lsp.vim'))
 "   finish
@@ -163,6 +163,13 @@ nmap <silent> <C-d> <Plug>(coc-definition)
 
 nmap <silent> cca <Plug>(coc-codeaction)
 
+let mapleader = "\<Space>"
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 
 imap <c-h> <left>
 imap <c-j> <down>
