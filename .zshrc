@@ -139,4 +139,10 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 
 eval "$(starship init zsh)"
 
+if type "starship" > /dev/null 2>&1; then
+	echo "starship already"
+else
+	curl -fsSL https://starship.rs/install.sh | bash
+fi
+
 tmux
