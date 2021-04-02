@@ -67,3 +67,5 @@ alias dc='docker-compose'
 alias dcu='docker-compose up'
 
 alias dsql='mysql -u root -ppassword -h localhost -P 3306 --protocol=tc'
+
+alias t="tmux"
