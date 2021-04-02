@@ -1,11 +1,3 @@
-# If you need to have icu4c first in your PATH, run:
-#   echo 'export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"' >> ~/.zshrc
-#   echo 'export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"' >> ~/.zshrc
-# 
-# For compilers to find icu4c you may need to set:
-#   export LDFLAGS="-L/opt/homebrew/opt/icu4c/lib"
-#   export CPPFLAGS="-I/opt/homebrew/opt/icu4c/include"
-
 ZSH_EXTEND_FILE=~/.extendFile
 ALIAS_FILE=$ZSH_EXTEND_FILE/aliases
 
@@ -137,6 +129,17 @@ export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
 export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 
+# echancdの設定
+
+# echancd cd実行後のコマンドを設定
+export ENHANCD_HOOK_AFTER_CD=la
+
+# cd - の表示数を設定
+export ENHANCD_HYPHEN_NUM=20
+
+# echancdのコマンド実行設定
+# export ENHANCD_COMMAND=cd
+
 eval "$(starship init zsh)"
 
 if type "starship" > /dev/null 2>&1; then
@@ -145,4 +148,3 @@ else
 	curl -fsSL https://starship.rs/install.sh | bash
 fi
 
-tmux
