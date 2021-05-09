@@ -1,4 +1,7 @@
 {
+  "explorer.file.showHiddenFiles": true,
+  "explorer.width": 50,
+  "explorer.buffer.showHiddenBuffers": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "go",
     "python",
