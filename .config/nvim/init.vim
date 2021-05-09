@@ -26,7 +26,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'cohama/lexima.vim'
 " HTMLの閉じカッコを自動でしてくれる機能
 Plug 'alvan/vim-closetag'
-" タグを自動で閉じでくれる　divでCtrl + E + ,を押すと<div></div>になる
+" タグを自動で閉じでくれる　divでCtrl + e + ,を押すと<div></div>になる
 Plug 'mattn/emmet-vim'
 " typescriptのカラースキーム
 " Plug 'leafgarland/typescript-vim'
@@ -49,20 +49,25 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 
 Plug 'junegunn/vim-easy-align'
+
+" 日本語ヘルプ
+Plug 'vim-jp/vimdoc-ja'
 call plug#end()
 
-set tabstop=2
 set number
 set nobackup
 set noswapfile
 set hlsearch
 set autoindent
-set shiftwidth=2
 set smartindent
 set completeopt=menuone,noinsert,noselect,preview
 set wildmenu " コマンドモードの補完
 set clipboard+=unnamed
 
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set helplang=ja,en
 " if empty(globpath(&rtp, 'autoload/lsp.vim'))
 "   finish
 " endif
@@ -171,10 +176,7 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-imap <c-h> <left>
-imap <c-j> <down>
-imap <c-k> <up>
-imap <c-l> <right>
+:nnoremap <space>e :CocCommand explorer<CR>
 
 let g:coc_global_extensions = [
       \'coc-json',
@@ -211,7 +213,7 @@ let g:coc_global_extensions = [
       \'coc-tailwindcss',
       \'coc-vetur',
       \'coc-clangd',
-      \'coc-db'
+      \'coc-explorer',
       \]
 
 " junegunn/vim-easy-align
