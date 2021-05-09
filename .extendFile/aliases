@@ -2,7 +2,7 @@ EDITOR='nvim'
 
 # some more ls aliases
 alias ll='ls -alFG'
-alias la='ls -AG'
+alias la='ls -AGF'
 alias l='ls -CFG'
 
 # git aliases
@@ -66,6 +66,6 @@ alias sudo='sudo '
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 
-alias dsql='mysql -u root -ppassword -h localhost -P 3306 --protocol=tc'
+alias dsql='mysql -u root -ppassword -h localhost -P 3306 --protocol=tcp'
 
 alias t="tmux"
