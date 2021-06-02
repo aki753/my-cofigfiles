@@ -51,8 +51,31 @@ SAVEHIST=1000000
 # 1行表示
 # PROMPT="%~ %# "
 # 2行表示
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-%# "
+PROMPT=" 
+%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+> "
+
+show_git_branch () {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+}
+
+show_prompt () {
+PROMPT=" 
+%{${fg[green]}%}[%n@%m]%{${reset_color}%}$(show_git_branch) %~
+> "
+  zle accept-line
+}
+
+# update_prompt () {
+#   show_prompt()
+# }
+# 
+
+bindkey '^M' accept-line
+
+# TMOUT=1
+# TRAPALRM() {
+# }
 
 ########################################
 # オプション
@@ -105,8 +128,6 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 # vimのキーバインドでインサートから抜けるためにjjを使う
 bindkey -M viins 'jj' vi-cmd-mode
@@ -140,19 +161,15 @@ export ENHANCD_HYPHEN_NUM=20
 # echancdのコマンド実行設定
 # export ENHANCD_COMMAND=cd
 
-eval "$(starship init zsh)"
-
-if type "starship" > /dev/null 2>&1; then
-	echo "starship already"
-else
-	curl -fsSL https://starship.rs/install.sh | bash
-fi
-
 # android開発のための環境変数
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Nerd fort Linux
+# mkdir -p ~/.local/share/fonts
+# cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 
 setopt +o nomatch 

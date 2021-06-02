@@ -52,6 +52,8 @@ Plug 'junegunn/vim-easy-align'
 
 " 日本語ヘルプ
 Plug 'vim-jp/vimdoc-ja'
+
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set number
