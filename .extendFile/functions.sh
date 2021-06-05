@@ -13,14 +13,3 @@ function show_prompt () {
 %{${fg[green]}%}[%n@%m]%{${reset_color}%}$(show_git_branch) %~
 > "
 }
-
-function load_setting_file () {
-  # $1 is setting file path
-  if [ -f $1 ]; then
-    source $1
-    echo 'already load '$1
-  else
-    print '404: $1 not found'
-  fi
-}
-
