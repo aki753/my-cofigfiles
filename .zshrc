@@ -1,3 +1,6 @@
+# Ctrl + k : autosuggest-executeを実行。コマンドを打つと薄い文字でコマンドが出てくるため、それを実行する。
+# gitのブランチは自前で実装。これは今の所zshだけ使える。
+
 EXTEND_FILE=~/.extendFile
 ALIASES_FILE=$EXTEND_FILE/aliases.sh
 EXPORTS_FILE=$EXTEND_FILE/exports.sh
@@ -38,7 +41,6 @@ if ! zplug check --verbose; then
     fi
 fi
 
-
 # プロンプト表示と、プロンプトにブランチ名を表示するようにする
 autoload -Uz show_prompt
 # シェル関数`compinit`の自動読み込み
@@ -66,6 +68,11 @@ bindkey -M viins 'jj' vi-cmd-mode
 # そのコマンドの履歴をpとnで表示する
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# zsh-autosuggestions settings
+# C-kで出てきた候補を実行する 
+bindkey '^k' autosuggest-execute
 
 # Nerd fort Linux
 # mkdir -p ~/.local/share/fonts

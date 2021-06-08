@@ -5,11 +5,11 @@ function zle-line-init zle-keymap-select {
 }
 
 function show_git_branch () {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 function show_prompt () {
   PROMPT=" 
-%{${fg[green]}%}[%n@%m]%{${reset_color}%}$(show_git_branch) %~
+%{${fg[green]}%}[%n@%m]%{${reset_color}%} [$(show_git_branch)] %~
 > "
 }
