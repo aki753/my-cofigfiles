@@ -69,7 +69,26 @@ bindkey -M viins 'jj' vi-cmd-mode
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# zsh-autosuggestionsのインストール or 読み込み
+case $(uname) in
+  'Linux' )
+    ZSH_AUTOSUGGESTIONS_PATH=~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    if [ -f $ZSH_AUTOSUGGESTIONS_PATH ]; then
+      source $ZSH_AUTOSUGGESTIONS_PATH
+    else
+      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    fi;;
+  'Darwin' )
+    ZSH_AUTOSUGGESTIONS_PATH=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    if [ -f $ZSH_AUTOSUGGESTIONS_PATH ]; then
+      source $ZSH_AUTOSUGGESTIONS_PATH
+    else
+      # 所有しているMacがロゼッタで開いているため、arch -arm64
+      # をつける。ロゼッタで開いていない場合はいらない。
+      arch -arm64 brew install zsh-autosuggestions
+    fi;;
+esac
+
 # zsh-autosuggestions settings
 # C-kで出てきた候補を実行する 
 bindkey '^k' autosuggest-execute
