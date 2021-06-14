@@ -77,6 +77,7 @@ case $(uname) in
       source $ZSH_AUTOSUGGESTIONS_PATH
     else
       git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+      source $ZSH_AUTOSUGGESTIONS_PATH
     fi;;
   'Darwin' )
     ZSH_AUTOSUGGESTIONS_PATH=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -86,6 +87,7 @@ case $(uname) in
       # 所有しているMacがロゼッタで開いているため、arch -arm64
       # をつける。ロゼッタで開いていない場合はいらない。
       arch -arm64 brew install zsh-autosuggestions
+      source $ZSH_AUTOSUGGESTIONS_PATH
     fi;;
 esac
 
