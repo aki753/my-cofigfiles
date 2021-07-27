@@ -24,3 +24,5 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export ENHANCD_HOOK_AFTER_CD=la
 # cd - の表示数を設定
 export ENHANCD_HYPHEN_NUM=20
+
+export PATH=$PATH:`yarn bin -g`
