@@ -70,6 +70,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set helplang=ja,en
+set cursorline
 " if empty(globpath(&rtp, 'autoload/lsp.vim'))
 "   finish
 " endif
