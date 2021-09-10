@@ -65,7 +65,31 @@ alias sudo='sudo '
 # docker-compose
 alias dc='docker-compose'
 alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dspv='docker system prune --volumes'
 
-alias dsql='mysql -u root -ppassword -h localhost -P 3306 --protocol=tcp --database=develop'
+alias dsql='mycli -u develop -h localhost -ppassword -D develop '
 
 alias t="tmux"
+
+alias routineTask="~/routineTask.sh"
+alias pkgUpdate="~/pkg-update.sh"
+alias openApp="~/openApp.sh"
+
+alias yi="yarn install"
+alias ya="yarn add"
+alias yad="yarn add --dev"
+alias yga="yarn global add"
+alias yr="yarn run"
+alias yre="yarn run example"
+alias ys="yarn start"
+alias yis="yarn install && yarn start"
+alias yt="yarn test"
+alias yit="yarn install && yarn test"
+alias yl="yarn link"
+alias yu="yarn unlink"
+
+alias ysd="yarn start:dev"
+alias yd="yarn dev"
+alias ymr="yarn migration:run"
+alias ysr="yarn seed:run"
