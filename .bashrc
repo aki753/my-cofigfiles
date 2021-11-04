@@ -1,3 +1,5 @@
+zsh
+
 ZSH_EXTEND_FILE=~/.extendFile
 ALIAS_FILE=$ZSH_EXTEND_FILE/aliases
 
