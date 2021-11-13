@@ -54,6 +54,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vim-jp/vimdoc-ja'
 
 Plug 'tpope/vim-fugitive'
+
+# visual gc normal gcc comment
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set number
