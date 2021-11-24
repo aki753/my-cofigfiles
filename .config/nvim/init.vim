@@ -55,7 +55,7 @@ Plug 'vim-jp/vimdoc-ja'
 
 Plug 'tpope/vim-fugitive'
 
-# visual gc normal gcc comment
+" visual gc normal gcc comment
 Plug 'tpope/vim-commentary'
 call plug#end()
 
