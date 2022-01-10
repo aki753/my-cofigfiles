@@ -57,6 +57,7 @@ Plug 'tpope/vim-fugitive'
 
 " visual gc normal gcc comment
 Plug 'tpope/vim-commentary'
+Plug 'lambdalisue/fern.vim'
 call plug#end()
 
 set number
@@ -182,7 +183,8 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-:nnoremap <space>e :CocCommand explorer<CR>
+" :nnoremap <space>e :CocCommand explorer<CR>
+:nnoremap <space>e :Fern . -drawer -keep<CR>
 
 let g:coc_global_extensions = [
       \'coc-json',
