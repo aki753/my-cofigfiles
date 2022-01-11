@@ -68,13 +68,15 @@ alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dspv='docker system prune --volumes'
 
+alias dallstop='docker stop $(docker ps -q)'
+
 alias dsql='mycli -u develop -h localhost -ppassword -D develop '
 
 alias t="tmux"
 
-alias routineTask="~/routineTask.sh"
-alias pkgUpdate="~/pkg-update.sh"
-alias openApp="~/openApp.sh"
+alias routineTask="~/shellDir/routineTask.sh"
+alias pkgUpdate="~/shellDir/pkg-update.sh"
+alias openApp="~/shellDir/openApp.sh"
 
 alias yi="yarn install"
 alias ya="yarn add"

@@ -36,3 +36,14 @@ function hex2dec(){
 function chex2dec(){
   echo $(hex2dec $1) $(hex2dec $2) $(hex2dec $3)
 }
+
+# find parent git branch
+function find-parent-git-branch(){
+  if [ -z $1 ]; then
+    echo '親を調べたいブランチを指定してください'
+    return 0
+  fi
+
+  parent_branch=${2:-develop}
+  git show-branch --sha1-name $parent_branch $1 | tail -1
+}
