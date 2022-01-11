@@ -57,7 +57,10 @@ Plug 'tpope/vim-fugitive'
 
 " visual gc normal gcc comment
 Plug 'tpope/vim-commentary'
+
+" ファイラー
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-git-status.vim'
 call plug#end()
 
 set number
@@ -184,7 +187,7 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " :nnoremap <space>e :CocCommand explorer<CR>
-:nnoremap <space>e :Fern . -drawer -keep<CR>
+:nnoremap <space>e :Fern . -reveal=% -drawer -keep<CR>
 
 let g:coc_global_extensions = [
       \'coc-json',
@@ -226,3 +229,7 @@ let g:coc_global_extensions = [
 
 " junegunn/vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
+
+" fern setting
+" 隠しファイル表示
+let g:fern#default_hidden=1
