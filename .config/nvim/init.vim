@@ -187,7 +187,7 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " :nnoremap <space>e :CocCommand explorer<CR>
-:nnoremap <space>e :Fern . -reveal=% -drawer -keep<CR>
+:nnoremap <space>e :Fern . -reveal=% -drawer -width=35<CR>
 
 let g:coc_global_extensions = [
       \'coc-json',
