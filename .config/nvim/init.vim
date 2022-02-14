@@ -61,6 +61,9 @@ Plug 'tpope/vim-commentary'
 " ファイラー
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+
+" brew install clang-format
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 set number
@@ -233,3 +236,5 @@ vmap <Enter> <Plug>(EasyAlign)
 " fern setting
 " 隠しファイル表示
 let g:fern#default_hidden=1
+
+autocmd FileType c,cpp ClangFormatAutoEnable
