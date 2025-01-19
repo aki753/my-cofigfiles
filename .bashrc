@@ -177,3 +177,5 @@ alias dallstop='docker stop $(docker ps -q)'
 
 alias t="tmux"
 
+# tmux
+tmux
