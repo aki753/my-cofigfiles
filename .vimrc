@@ -13,6 +13,9 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+" カーソルが当たっている単語をハイライトする
+Plug 'dominikduda/vim_current_word'
+
 call plug#end()
 
 set number
@@ -56,3 +59,6 @@ set statusline+=%=
 " 現在行数/全行数
 set statusline+=[LOW=%l/%L]
 
+" vim-lsp で出たエラー内容をファイルに出力する
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
